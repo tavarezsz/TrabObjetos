@@ -1,4 +1,5 @@
 using System;
+using TrabObjetos.models;
 
 namespace TrabObjetos;
 

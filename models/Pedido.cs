@@ -1,10 +1,12 @@
 using System;
 using System.ComponentModel;
+using TrabObjetos.models;
 
 namespace TrabObjetos;
 
-public class Pedido
-{
+public class Pedido : Ientidade
+{   
+    public int Id { get; set; }
     public int NumeroPedido;
     public DateTime DataHoraPedido;
     public DateTime DataHoraEntrega;

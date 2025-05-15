@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrabObjetos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1efadc8343bcc7c2cf4916a52fba89d6265940ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrabObjetos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrabObjetos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

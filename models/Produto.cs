@@ -1,8 +1,9 @@
 using System;
+using TrabObjetos.models;
 
 namespace TrabObjetos;
 
-public class Produto
+public class Produto : Ientidade
 {
     public int Id {get;set;}
     public String Nome {get;set;}

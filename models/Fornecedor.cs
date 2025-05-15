@@ -1,9 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using TrabObjetos.models;
 
 namespace TrabObjetos;
 
-public class Fornecedor
+public class Fornecedor : Ientidade
 {
     public int Id{get;set;}
     public String Nome{get;set;}

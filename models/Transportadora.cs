@@ -2,7 +2,7 @@ using System;
 
 namespace TrabObjetos.models;
 
-public class Transportadora
+public class Transportadora : Ientidade
 {
     public int Id {get;set;}
     public String Nome {get;set;}

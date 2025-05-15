@@ -1,8 +1,9 @@
 using System;
+using TrabObjetos.models;
 
 namespace TrabObjetos;
 
-public  abstract class Usuario
+public  abstract class Usuario : Ientidade
 {
     public int Id {get;set;}
     public string Nome {get;set;}
@@ -14,7 +15,7 @@ public  abstract class Usuario
         return false;
     }
 
-    public void AlterarCadastro(string novoNome = null,string novaSenha = null){
+    public virtual void AlterarCadastro(string novoNome = null,string novaSenha = null){
         if(novoNome != null)
             Nome = novoNome;
 

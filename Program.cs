@@ -14,6 +14,9 @@ InterfaceGrafica ig = new InterfaceGrafica();
 
 ig.InserirUsuario();
 
-ig.ListarUsuarios();
+//Usuario u0 = InterfaceGrafica.BuscarPorID(0, ig.listaUsers);
+var u1 = InterfaceGrafica.BuscarPorID(1, ig.listaUsers);
+
+Console.WriteLine(u1.Nome);
 
 
