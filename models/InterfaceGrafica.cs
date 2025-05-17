@@ -84,7 +84,7 @@ public class InterfaceGrafica
         Console.WriteLine("Senha:");
         string senha = Console.ReadLine();
 
-        //userAtual = BuscarUsuario(null,nome);
+        //userAtual = BuscarPorID(null,nome);
 
 
 
@@ -99,15 +99,15 @@ public class InterfaceGrafica
         }
     }
 
-    private T BuscarPorID<T>(int id, T[] array) where T : Ientidade
+    public static T BuscarPorNome<T>(string nome, T[] array) where T : Ientidade
     {
         //uma função generica, que procura um objeto por id em qualquer lista de classes que implementam a interface Ientidade
-        //ex de chamada BuscarPorID(2,listaUsers)
+        //ex de chamada BuscarPorID("eduardo",listaUsers)
         foreach (var item in array)
         {
             if (item != null)
             {
-                if (item.Id == id)
+                if (item.Nome == nome)
                 {
                     return item;
                 }

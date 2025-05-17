@@ -4,7 +4,7 @@ using TrabObjetos.models;
 
 namespace TrabObjetos;
 
-public class Pedido : Ientidade
+public class Pedido
 {   
     public int Id { get; set; }
     public int NumeroPedido;
