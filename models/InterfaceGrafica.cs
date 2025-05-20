@@ -3,6 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Dynamic;
 using System.Reflection.Metadata;
+using System.Collections.Generic;
 
 namespace TrabObjetos.models;
 
@@ -25,9 +26,112 @@ public class InterfaceGrafica
     {
 
         Admin master = new Admin(0, "adm", "123");
-        listaUsers[0] = master;
+        listaUsers[0] = master; 
 
     }
+
+    public void MostrarMenuAdm()
+    {
+        int opcao;
+        do
+        {
+            Console.WriteLine("\n========= MENU PRINCIPAL =========");
+            Console.WriteLine("1 - Inserir Usuário");
+            Console.WriteLine("2 - Alterar Usuário");
+            Console.WriteLine("3 - Listar Usuários");
+            Console.WriteLine("4 - Excluir Usuário");
+            Console.WriteLine("5 - Inserir Fornecedor");
+            //Console.WriteLine("6 - Alterar Fornecedor");
+            Console.WriteLine("7 - Listar Fornecedores");
+            Console.WriteLine("8 - Excluir Fornecedor");
+            Console.WriteLine("9 - Inserir Produto");
+            //Console.WriteLine("10 - Alterar Produto");
+            Console.WriteLine("11 - Listar Produtos");
+            Console.WriteLine("12 - Excluir Produto");
+            Console.WriteLine("13 - Inserir Transportadora");
+            //Console.WriteLine("14 - Alterar Transportadora");
+            Console.WriteLine("15 - Listar Transportadoras");
+            Console.WriteLine("16 - Excluir Transportadora");
+            Console.WriteLine("17 - Logar novamente");
+            Console.WriteLine("0 - Sair");
+            Console.Write("Escolha uma opção: ");
+
+            while (!int.TryParse(Console.ReadLine(), out opcao))
+            {
+                Console.WriteLine("Entrada inválida! Digite um número:");
+            }
+
+            switch (opcao)
+            {
+                case 1:
+                    InserirUsuario();
+                    break;
+                case 2:
+                    AlterarUsuario();
+                    break;
+                case 3:
+                    ListarItens("Lista de Usuarios", listaUsers);
+                    break;
+                case 4:
+                    ExcluirItem(listaUsers);
+                    break;
+                case 5:
+                    InserirFornecedor();
+                    break;
+                //case 6:
+                //AlterarFornecedor();
+                // break;
+                case 7:
+                    ListarItens("Lista de Fornecedores", listaFornecedores);
+                    break;
+                case 8:
+                    ExcluirItem(listaFornecedores);
+                    break;
+                case 9:
+                    InserirProduto();
+                    break;
+                //case 10:
+                // AlterarProduto();
+                // break;
+                case 11:
+                    ListarItens("Lista de Produtos",listaProdutos); //produtos
+                    break;
+                case 12:
+                    ExcluirItem(listaProdutos);
+                    break;
+                case 13:
+                    InserirTransportadora();
+                    break;
+                //case 14:
+                //AlterarTransportadora();
+                //break;
+                case 15:
+                    ListarItens("Lista de Transportadoras",listaTransportadoras); //transportadoras
+                    break;
+                case 16:
+                    //ExcluirTransportadora(Transportadora transParaExcluir);
+                    break;
+                case 17:
+                    Entrar();
+                    opcao = 0;
+                    break;
+
+                case 0:
+                    Console.WriteLine("Saindo do programa...");
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida. Tente novamente.");
+                    break;
+            }
+
+        } while (opcao != 0);
+    }
+
+    public void MostrarMenuCliente()
+    {
+        Console.WriteLine("AINDA NÃO IMPLEMENTADO");
+    }
+
 
     public void InserirUsuario()
     {
@@ -71,23 +175,27 @@ public class InterfaceGrafica
             Console.WriteLine("usuario criado com sucesso");
         }
 
-
     }
 
     public void AlterarUsuario()
     {
         Console.WriteLine("-----------Alteração de Usuario -----------");
+
+
+        Console.WriteLine("Nome do usuario a ser alterado:");
+        string nome = Console.ReadLine();
+
+        userAtual = BuscarPorNome(nome, listaUsers);
+
         Console.WriteLine("Se deseja que algum campo permanesça como esta, só aperte enter no campo\n");
 
         Console.WriteLine("Nome:");
-        string nome = Console.ReadLine();
+        nome = Console.ReadLine();
+
         Console.WriteLine("Senha:");
         string senha = Console.ReadLine();
 
-        //userAtual = BuscarPorID(null,nome);
-
-
-
+        userAtual.AlterarCadastro(nome, senha);
     }
 
     public void ListarUsuarios()
@@ -116,6 +224,36 @@ public class InterfaceGrafica
 
         throw new Exception("Item não encontrado");
     }
+
+    private void ListarItens<T>(string msg, T[] array) where T : Ientidade
+    {
+        //função generica que mostra qualquer lista de entidades
+        Console.WriteLine($"-----------{msg}-----------");
+        foreach (var item in array)
+        {
+            if (item != null)
+            {
+                Console.WriteLine(item.ObterDescricao());
+            }
+        }
+    }
+
+    private void ExcluirItem<T>(T[] array) where T : Ientidade
+    {
+        Console.WriteLine("Id para exclusão: ");
+        int id = int.Parse(Console.ReadLine());
+        try
+        {
+            array[id] = default; //null
+        }
+        catch
+        {
+            Console.WriteLine("Não foi possível encontrar o item");
+        }
+
+        Console.WriteLine("Excluido com sucesso");
+    }
+
 
     private Endereço InserirEndereco()
     {
@@ -152,21 +290,35 @@ public class InterfaceGrafica
     {
 
         Console.WriteLine("----------Login----------");
-        Console.WriteLine("Nome do usuario: ");
-        string nome = Console.ReadLine();
-        Console.WriteLine("Senha: ");
-        string senha = Console.ReadLine();
+        Console.WriteLine("Nome de usuario: ");
 
-        foreach (var user in listaUsers)
+        try
         {
-            if (user != null && user.Nome == nome)
-                if (user.Login(senha))
-                {
-                    Console.WriteLine("Login efetuado com sucesso");
-                    userAtual = user; //A função de mostrar o menu vai ser diferente dependendo do acesso
-                }
+            string nome = Console.ReadLine();
 
+            userAtual = BuscarPorNome(nome, listaUsers);
+            
+            Console.WriteLine("Senha: ");
+            string senha = Console.ReadLine();
+
+
+            if (userAtual.Login(senha))
+            {
+                Console.WriteLine("Login efetuado com sucesso");
+                if (userAtual.Acesso == "admin")
+                    MostrarMenuAdm();
+                else
+                    MostrarMenuCliente();
+            }
+            else
+                Console.WriteLine("Senha incorreta, tente novamente");
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            Console.WriteLine("Tente novamente");
+        }
+
 
     }
 
@@ -194,6 +346,46 @@ public class InterfaceGrafica
         listaFornecedores[contFornecedor++] = f;
 
     }
+    private void InserirProduto()
+    {
+        Console.WriteLine("---------- Cadastro de Produto ----------");
+
+        Console.WriteLine("Nome do Produto:");
+        string nomeProduto = Console.ReadLine();
+
+        Console.WriteLine("Nome do Fornecedor: ");
+        string nomeFornecedor = Console.ReadLine();
+
+        Fornecedor fornecedorProduto = BuscarPorNome(nomeFornecedor, listaFornecedores);
+  
+        Console.WriteLine("Quantidade em estoque:");
+        int estoqueP;
+        while (!int.TryParse(Console.ReadLine(), out estoqueP))
+        {
+            Console.WriteLine("Entrada inválida! Digite um número inteiro:");
+        }
+
+        Produto p = new Produto(contProduto, nomeProduto, fornecedorProduto, estoqueP);
+
+        listaProdutos[contProduto++] = p;
+    }
+
+    private void InserirTransportadora()
+    {
+        Console.WriteLine("---------- Cadastro de Transportadora ----------");
+
+        Console.WriteLine("Nome da Transportadora:");
+        string nomeTransportadora = Console.ReadLine();
+
+        Console.WriteLine("Preço cobrado para cada KM rodado:");
+        double kmPreco = double.Parse(Console.ReadLine());
+
+        Transportadora t = new Transportadora(contTransportadora, nomeTransportadora, kmPreco);
+
+        listaTransportadoras[contTransportadora++] = t;
+
+    }
+
 
 
 

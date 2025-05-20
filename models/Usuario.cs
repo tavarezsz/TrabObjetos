@@ -8,9 +8,11 @@ public  abstract class Usuario : Ientidade
     public int Id {get;set;}
     public string Nome {get;set;}
     public string Senha{get;set;}
+    public string Acesso{ get; set;}
 
-    public bool Login(string senhaTentada){
-        if(this.Senha == senhaTentada)
+    public bool Login(string senhaTentada)
+    {
+        if (this.Senha == senhaTentada)
             return true;
         return false;
     }

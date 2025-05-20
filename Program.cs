@@ -11,11 +11,7 @@ Produto cafe = new Produto(1,"Café soluvel 300g",f1,10);
 
 InterfaceGrafica ig = new InterfaceGrafica();
 
+ig.Entrar();
 
-ig.InserirUsuario();
-
-var u1 = InterfaceGrafica.BuscarPorNome("eduardo", ig.listaUsers);
-
-Console.WriteLine(u1.Nome);
 
 

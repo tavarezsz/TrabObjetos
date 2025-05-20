@@ -4,7 +4,6 @@ namespace TrabObjetos;
 
 public class Cliente:Usuario
 {
-    public string Acesso{get;set;}
     public Endereço Endereco{get;set;}
     public Pedido[] Pedidos = new Pedido[10];
 
