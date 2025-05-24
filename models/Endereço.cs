@@ -23,29 +23,6 @@ public class Endereço
         this.Estado=estado;
     }
 
-    public void AlterarEndereço(String NovaRua = null, String NovoNumero = null, String NovoComplemento = null, String NovoBairro = null, String NovoCep = null, String NovaCidade = null, String NovoEstado = null ){
-        if(NovaRua!=null){
-            this.Rua= NovaRua;    
-        }
-        if(NovoNumero!=null){
-            this.Número=NovoNumero;
-        }
-        if(NovoComplemento!=null){
-            this.Complemento=NovoComplemento;
-        }
-        if(NovoBairro!=null){
-            this.Bairro=NovoBairro;
-        }
-        if(NovoCep!=null){
-            this.Cep=NovoCep;
-        }
-        if(NovaCidade!=null){
-            this.Cidade=NovaCidade;
-        }
-        if(NovoEstado!=null){
-            this.Estado=NovoEstado;
-        }
-    }
     public String ObterDescricaoEndereço()
     {
         return $"Rua: {Rua}, Número: {Número}, Complemento: {Complemento}, CEP: {Cep}, Cidade: {Cidade}, Estado: {Estado}.";

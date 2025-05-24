@@ -1,5 +1,5 @@
 using System;
-
+using TrabObjetos;
 namespace TrabObjetos.models;
 
 public class Transportadora : Ientidade

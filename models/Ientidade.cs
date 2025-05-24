@@ -11,8 +11,5 @@ public interface Ientidade
     {
         return "";
     }
-    public void AlterarCadastro()
-    {
-        
-    }
+
 }

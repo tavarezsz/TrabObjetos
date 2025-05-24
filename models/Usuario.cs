@@ -17,13 +17,6 @@ public  abstract class Usuario : Ientidade
         return false;
     }
 
-    public virtual void AlterarCadastro(string novoNome = null,string novaSenha = null){
-        if(novoNome != null)
-            Nome = novoNome;
-
-        if(novaSenha != null)
-            Senha = novaSenha;
-    }    
     public virtual string ObterDescricao(){
         return"so para herança";
     }
