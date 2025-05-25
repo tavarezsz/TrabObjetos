@@ -63,7 +63,13 @@ public class GerenciadorTransportadoras : GerenciadorListas
         string nomeTransportadora = Console.ReadLine();
 
         Console.WriteLine("Preço cobrado para cada KM rodado: ");
-        double kmPreco = double.Parse(Console.ReadLine());
+        double kmPreco;
+
+        while (!double.TryParse(Console.ReadLine(), out kmPreco))
+        {
+            Console.WriteLine("Entrada inválida! Digite um número:");
+        }
+
 
         Transportadora t = new Transportadora(cont, nomeTransportadora, kmPreco);
 

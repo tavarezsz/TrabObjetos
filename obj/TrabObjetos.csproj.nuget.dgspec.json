@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main\\TrabObjetos.csproj": {}
+    "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main\\TrabObjetos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main\\TrabObjetos.csproj": {
+    "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main\\TrabObjetos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main\\TrabObjetos.csproj",
+        "projectUniqueName": "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main\\TrabObjetos.csproj",
         "projectName": "TrabObjetos",
-        "projectPath": "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main\\TrabObjetos.csproj",
+        "projectPath": "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main\\TrabObjetos.csproj",
         "packagesPath": "C:\\Users\\Eduardo T\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main (1) (1) extraida\\TrabObjetos-main\\obj\\",
+        "outputPath": "C:\\Users\\Eduardo T\\OneDrive\\Área de Trabalho\\UCS\\objetos\\TrabObjetos-main\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,15 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -47,8 +47,8 @@
         "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "imports": [
             "net461",
             "net462",

@@ -25,6 +25,6 @@ public class Endereço
 
     public String ObterDescricaoEndereço()
     {
-        return $"Rua: {Rua}, Número: {Número}, Complemento: {Complemento}, CEP: {Cep}, Cidade: {Cidade}, Estado: {Estado}.";
+        return $"{Rua} {Número} {Cidade}, {Estado}, Complemento: {Complemento}, CEP: {Cep}.";
     }
 }

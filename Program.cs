@@ -6,6 +6,3 @@ using TrabObjetos.models;
 
 InterfaceGrafica ig = new InterfaceGrafica();
 
-
-
-

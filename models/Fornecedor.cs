@@ -24,6 +24,6 @@ public class Fornecedor : Ientidade
 
 
     public string ObterDescricao(){
-        return $"{Id} - {Nome}\n{Descricao}\ndados de contado:\n{Telefone},{Email}\nEndereço:\n{Endereco.ObterDescricaoEndereço()}";
+        return $"{Id} - {Nome}\n{Descricao}\ndados de contado: {Telefone},{Email}\nEndereço: {Endereco.ObterDescricaoEndereço()}";
     }
 } 

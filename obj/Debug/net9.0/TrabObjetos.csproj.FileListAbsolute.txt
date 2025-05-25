@@ -28,3 +28,18 @@ C:\Users\eftavares1\Documents\TrabObjetos\obj\Debug\net9.0\refint\TrabObjetos.dl
 C:\Users\eftavares1\Documents\TrabObjetos\obj\Debug\net9.0\TrabObjetos.pdb
 C:\Users\eftavares1\Documents\TrabObjetos\obj\Debug\net9.0\TrabObjetos.genruntimeconfig.cache
 C:\Users\eftavares1\Documents\TrabObjetos\obj\Debug\net9.0\ref\TrabObjetos.dll
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\TrabObjetos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\TrabObjetos.AssemblyInfoInputs.cache
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\TrabObjetos.AssemblyInfo.cs
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\TrabObjetos.csproj.CoreCompileInputs.cache
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\TrabObjetos.sourcelink.json
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\TrabObjetos.dll
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\refint\TrabObjetos.dll
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\TrabObjetos.pdb
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net9.0\TrabObjetos.exe
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net9.0\TrabObjetos.deps.json
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net9.0\TrabObjetos.runtimeconfig.json
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net9.0\TrabObjetos.dll
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net9.0\TrabObjetos.pdb
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\TrabObjetos.genruntimeconfig.cache
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net9.0\ref\TrabObjetos.dll

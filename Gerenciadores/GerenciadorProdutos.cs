@@ -78,8 +78,15 @@ public class GerenciadorProdutos : GerenciadorListas
             Console.WriteLine("Entrada inválida! Digite um número inteiro:");
         }
 
+        
+
         Console.WriteLine("Preço: ");
-        double preco = double.Parse(Console.ReadLine());
+        double preco;
+
+        while (!double.TryParse(Console.ReadLine(), out preco))
+        {
+            Console.WriteLine("Entrada inválida! Digite um número:");
+        }
 
         Produto p = new Produto(cont, nomeProduto, fornecedorProduto, preco, estoqueP);
         AdicionarItem(ref cont, p, listaProdutos);
