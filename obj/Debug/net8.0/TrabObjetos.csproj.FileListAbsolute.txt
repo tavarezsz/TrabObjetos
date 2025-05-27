@@ -1,0 +1,29 @@
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.AssemblyInfoInputs.cache
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.AssemblyInfo.cs
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.csproj.CoreCompileInputs.cache
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.exe
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.deps.json
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.runtimeconfig.json
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.dll
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.pdb
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.dll
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\refint\TrabObjetos.dll
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.pdb
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.genruntimeconfig.cache
+C:\Users\logar\Downloads\TrabObjetos-main (1) (3)\TrabObjetos-main\obj\Debug\net8.0\ref\TrabObjetos.dll
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.AssemblyInfoInputs.cache
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.AssemblyInfo.cs
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.csproj.CoreCompileInputs.cache
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.sourcelink.json
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.dll
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\refint\TrabObjetos.dll
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.pdb
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.exe
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.deps.json
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.runtimeconfig.json
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.dll
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\bin\Debug\net8.0\TrabObjetos.pdb
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\TrabObjetos.genruntimeconfig.cache
+C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\obj\Debug\net8.0\ref\TrabObjetos.dll

@@ -85,7 +85,18 @@ public class GerenciadorTransportadoras : GerenciadorListas
         Console.WriteLine("Nome da transportadora a ser alterado:");
         string nome = Console.ReadLine();
 
-        Transportadora tatual = BuscarPorNome(nome, listaTransportadoras);
+        Transportadora tatual;
+
+            try
+            {
+                tatual = BuscarPorNome(nome, listaTransportadoras);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("tente novamente");
+                return;
+            }
 
         Console.WriteLine("Se deseja que algum campo permaneça como esta, só aperte enter no campo\n");
 

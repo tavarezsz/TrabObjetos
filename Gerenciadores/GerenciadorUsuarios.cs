@@ -1,9 +1,10 @@
 using System;
 using TrabObjetos;
+using TrabObjetos.Gerenciadores;
 using TrabObjetos.models;
 namespace Gerenciadores;
 
-public class GerenciadorUsuarios : GerenciadorListas
+public class GerenciadorUsuarios : GerenciadorEnderecos
 {
     private Usuario[] listaUsers = new Usuario[max_itens];
     private int cont; //começa em 1 por causa do master
@@ -108,7 +109,18 @@ public class GerenciadorUsuarios : GerenciadorListas
         Console.WriteLine("Nome do usuario a ser alterado:");
         string nome = Console.ReadLine();
 
-        Usuario userAtual = BuscarPorNome(nome, listaUsers);
+        Usuario userAtual;
+
+            try
+            {
+                userAtual = BuscarPorNome(nome, listaUsers);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("tente novamente");
+                return;
+            }
 
         Console.WriteLine("Se deseja que algum campo permaneça como esta, só aperte enter no campo");
 
@@ -150,6 +162,7 @@ public class GerenciadorUsuarios : GerenciadorListas
             string nome = Console.ReadLine();
 
             Usuario userAtual = BuscarPorNome(nome, listaUsers);
+
 
             Console.WriteLine("Senha: ");
             string senha = Console.ReadLine();

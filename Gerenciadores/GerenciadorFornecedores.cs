@@ -1,10 +1,11 @@
 using System;
 using System.Collections.ObjectModel;
 using TrabObjetos;
+using TrabObjetos.Gerenciadores;
 using TrabObjetos.models;
 namespace Gerenciadores;
 
-public class GerenciadorFornecedores : GerenciadorListas
+public class GerenciadorFornecedores : GerenciadorEnderecos
 {
     public Fornecedor[] listaFornecedores = new Fornecedor[max_itens];
     public int cont;

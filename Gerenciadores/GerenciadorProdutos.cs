@@ -103,31 +103,57 @@ public class GerenciadorProdutos : GerenciadorListas
         Console.WriteLine("Nome do Produto a ser alterado:");
         string nome = Console.ReadLine();
 
-        Produto patual = BuscarPorNome(nome, listaProdutos);
+        Produto patual;
 
-        Console.WriteLine("Se deseja que algum campo permanesça como esta, só aperte enter no campo\n");
+            try
+            {
+                patual = BuscarPorNome(nome,listaProdutos);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("tente novamente");
+                return;
+            }
+
+        Console.WriteLine("Se deseja que algum campo permaneça como esta, só aperte enter no campo\n");
 
         Console.WriteLine("Nome:");
         nome = Console.ReadLine();
+        if (nome != "")
+            patual.Nome = nome;
 
         Console.WriteLine("quantidade de estoque:");
-        int estoque = int.Parse(Console.ReadLine());
-
+        string strestoque = Console.ReadLine();
+        if (strestoque != "")
+        {
+            int estoque = int.Parse(strestoque);
+            patual.QuantidadeEstoque = estoque;
+        }
         Console.WriteLine("Nome do Fornecedor:");
         string nomeF = Console.ReadLine();
-        Fornecedor f = BuscarPorNome(nomeF, gerFor.listaFornecedores);
-
-
+        if (nomeF != "")
+        {
+            Fornecedor f;
+            try
+            {
+                f = BuscarPorNome(nomeF, gerFor.listaFornecedores);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("tente novamente");
+                return;
+            }
+            patual.fornecedor = f;
+        }
         Console.WriteLine("Preço: ");
-        double preco = double.Parse(Console.ReadLine());
-
-
-
-        patual.Nome = nome;
-        patual.QuantidadeEstoque = estoque;
-        patual.Preco = preco;
-        patual.fornecedor = f;
-
+        string strpreco = Console.ReadLine();
+        if (strpreco != "")
+        {
+            double preco = double.Parse(strpreco);
+            patual.Preco = preco;
+        }
 
         Console.WriteLine("Alterado com sucesso");
 
