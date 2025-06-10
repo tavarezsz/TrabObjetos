@@ -1,10 +1,9 @@
 using System;
-using Gerenciadores;
+using TrabObjetos;
 
-namespace TrabObjetos.Gerenciadores;
+namespace Gerenciadores;
 
-public abstract class GerenciadorEnderecos : GerenciadorListas
-{
+public abstract class GerenciadorEnderecos{
     //Classe somente para as funções de endereços
      protected Endereço InserirEndereco()
     {
@@ -81,7 +80,5 @@ public abstract class GerenciadorEnderecos : GerenciadorListas
             endereco.Cidade = cidade;
 
         return endereco;
-
-
     }
 }
