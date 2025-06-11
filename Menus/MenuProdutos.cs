@@ -5,10 +5,17 @@ using TrabObjetos;
 
 namespace Menus;
 
-public class MenuProdutos(GerenciadorListas<Fornecedor> fornecedores)
+public class MenuProdutos
 {
     
-    private GerenciadorListas<Produto> gerenciador = new GerenciadorListas<Produto>();
+    private IRepositorio<Produto> gerenciador;
+    private IRepositorio<Fornecedor> fornecedores;
+
+    public MenuProdutos(IRepositorio<Produto> repo, IRepositorio<Fornecedor> forn)
+    {
+        fornecedores = forn;
+        gerenciador = repo;
+    }
 
     public void Menu()
     {
@@ -47,7 +54,7 @@ public class MenuProdutos(GerenciadorListas<Fornecedor> fornecedores)
                     if (!gerenciador.ExcluirItem(id))
                         Console.WriteLine("Id não encontrado");
                     else
-                        Console.WriteLine("Excluido com sucesso");    
+                        Console.WriteLine("Excluido com sucesso");
                     break;
             }
         } while (op != 0);
@@ -55,8 +62,12 @@ public class MenuProdutos(GerenciadorListas<Fornecedor> fornecedores)
     }
 
 
+
+
     public void CarrinhoCompras()
     {
+
+
         Console.WriteLine("Digite o produto que deseja: ");
         string produto = Console.ReadLine();
         List<Produto> resultados = gerenciador.Consulta(produto);

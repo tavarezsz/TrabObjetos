@@ -1,22 +1,41 @@
+using Gerenciadores;
 using TrabObjetos;
+using TrabObjetos.models;
 
 namespace Menus;
 
 public class InterfaceGrafica
 {
 
-    private MenuUsuarios MenuU = new MenuUsuarios();  
-    MenuFornecedores MenuF = new MenuFornecedores();
-    MenuTransportadoras MenuT = new MenuTransportadoras();
+    private MenuUsuarios MenuU;  
+    MenuFornecedores MenuF;
+    MenuTransportadoras MenuT;
     MenuProdutos MenuP;
 
     //GerenciadorPedidos GerenciadorPed = new GerenciadorPedidos(); 
 
     private Usuario userAtual { get; set; }
 
-    public InterfaceGrafica()
+    public InterfaceGrafica(string tipoArmazenamento)
     {
-        MenuP = new MenuProdutos(MenuF.gerenciador); //produtos precisa acessar a lista de fornecedores
+        //inicializar os gerenciadores
+        if (tipoArmazenamento.ToLower() == "lista")
+        {
+            MenuU = new MenuUsuarios(new GerenciadorListas<Usuario>());
+            MenuF = new MenuFornecedores(new GerenciadorListas<Fornecedor>());
+            MenuT = new MenuTransportadoras(new GerenciadorListas<Transportadora>());
+            MenuP = new MenuProdutos(new GerenciadorListas<Produto>(), MenuF.gerenciador);//produtos precisa acessar a lista de fornecedores
+
+        }
+        else
+        {
+            MenuU = new MenuUsuarios(new GerenciadorVetores<Usuario>());
+            MenuF = new MenuFornecedores(new GerenciadorVetores<Fornecedor>());
+            MenuT = new MenuTransportadoras(new GerenciadorVetores<Transportadora>());
+            MenuP = new MenuProdutos(new GerenciadorVetores<Produto>(), MenuF.gerenciador);//produtos precisa acessar a lista de fornecedores
+
+        }
+
         Entrar();
     }
 

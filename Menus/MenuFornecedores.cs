@@ -7,7 +7,7 @@ namespace Menus;
 public class MenuFornecedores : GerenciadorEnderecos
 {
 
-    public GerenciadorListas<Fornecedor> gerenciador = new GerenciadorListas<Fornecedor>();
+    public IRepositorio<Fornecedor> gerenciador;
     public void Menu()
     {
         int op;
@@ -51,8 +51,9 @@ public class MenuFornecedores : GerenciadorEnderecos
 
     }
 
-    public MenuFornecedores()
+    public MenuFornecedores(IRepositorio<Fornecedor> repo)
     {
+        gerenciador = repo;
         //cadastrar alguns exemplos
         Endereço e = new Endereço("julio de castilhos", "555", "fabrica", "lourdes", "12443", "Caxias do sul", "RS");
         Fornecedor f = new Fornecedor("comp", "Fornecedor de alimentos em geral", "549938210", "comp@gmail.com", e);

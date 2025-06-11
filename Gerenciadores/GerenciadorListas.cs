@@ -1,21 +1,26 @@
 using System;
-using System.Collections.Specialized;
 using TrabObjetos;
-using TrabObjetos.models;
+
 namespace Gerenciadores;
 
-
-public class GerenciadorListas<T> where T : IEntidade
+public class GerenciadorListas<T> : IRepositorio<T> where T : IEntidade
 {
+    List<T> lista = new List<T>();
 
-    private T[] vetor = new T[max_itens];
-    public int cont = 0;
-    protected const int max_itens = 10;
+    public void AdicionarItem(T item)
+    {
+        if (lista.Exists(p => p.Nome == item.Nome))//se já existe esse nome na lista
+        {
+            throw new Exception("Um item com este nome já está cadastrado");
+        }
+        item.Id = lista.Count;
+        lista.Add(item);
+    }
+
     public T BuscarPorNome(string nome)
     {
-        //uma função generica, que procura um objeto por id em qualquer lista de classes que implementam a interface Ientidade
-        //ex de chamada BuscarPorNome("eduardo",listaUsers)
-        foreach (var item in vetor)
+
+        foreach (var item in lista)
         {
             if (item != null)
             {
@@ -29,75 +34,43 @@ public class GerenciadorListas<T> where T : IEntidade
         throw new Exception("Item não encontrado");
     }
 
-    public void ListarItens(string msg)
-    {
-        //função generica que mostra qualquer lista de entidades
-        Console.WriteLine($"-----------{msg}-----------");
 
-        int cont = 0;
-        foreach (var item in vetor)
+    public List<T> Consulta(string keyword)
+    {
+        List<T> resultado = new List<T>();
+        foreach (var item in lista)
         {
-            if (item != null)
+            if (item.Nome.Contains(keyword))
             {
-                cont++;
-                Console.WriteLine("\n" + item.ObterDescricao() + "\n");
+                resultado.Add(item);
             }
         }
-        if (cont == 0)
-            Console.WriteLine("A lista está vazia\n");
+        return resultado;
     }
 
     public bool ExcluirItem(int id)
     {
-
-        T[] novoVet = new T[vetor.Length]; // Usa o mesmo tamanho do array original
-        int novoCont = 0;
-        bool encontrado = false;
-
-        foreach (var item in vetor)
+        try
         {
-            if (item != null && item.Id != id)
-            {
-                item.Id = novoCont; // Atualiza o ID
-                novoVet[novoCont++] = item;
-            }
-            else if (item.Id == id)
-                encontrado = true;
+            lista.RemoveAt(id);
+        }
+        catch
+        {
+            return false;
         }
 
-        if (encontrado)
-        {
-            cont = novoCont;
-            vetor = novoVet;
-            Console.WriteLine("Excluído com sucesso");
-            return encontrado;
-        }
-
-        return encontrado;
+        return true;
 
     }
 
-    public void AdicionarItem(T item)
+    public void ListarItens(string msg)
     {
 
-        if (cont + 1 > max_itens)
-            throw new Exception("Limite de itens excedido");
-        item.Id = cont;
-        vetor[cont++] = item;
-
-
-    }
-
-    public List<T> Consulta(string keyword)
-    {
-        List<T> results = new List<T>();
-        //retorna uma lista de produtos referentes a pesquisas
-        foreach (var item in vetor)
+        Console.WriteLine($"--------{msg}--------");
+        foreach (var item in lista)
         {
-            if (item.Nome.Contains(keyword))
-                results.Add(item);
-        }
-        return results;
-    }
 
+            Console.WriteLine(item.ObterDescricao());
+        }
+    }
 }

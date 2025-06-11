@@ -6,7 +6,7 @@ namespace Menus;
 
 public class MenuUsuarios : GerenciadorEnderecos
 {
-    private GerenciadorListas<Usuario> gerenciador = new GerenciadorListas<Usuario>();
+    private IRepositorio<Usuario> gerenciador;
     public void Menu()
     {
         int op;
@@ -50,8 +50,10 @@ public class MenuUsuarios : GerenciadorEnderecos
 
     }
 
-    public MenuUsuarios()
+    public MenuUsuarios(IRepositorio<Usuario> repo)
     {
+        gerenciador = repo;
+
         Admin master = new Admin("adm", "123");
         Cliente cliente = new Cliente("eduardo", "senha", null);
         gerenciador.AdicionarItem(master);

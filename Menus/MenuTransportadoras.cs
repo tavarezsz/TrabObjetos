@@ -6,9 +6,11 @@ namespace Menus;
 
 public class MenuTransportadoras
 {
-    private GerenciadorListas<Transportadora> gerenciador = new GerenciadorListas<Transportadora>();
-    public MenuTransportadoras()
+    private IRepositorio<Transportadora> gerenciador;
+    public MenuTransportadoras(IRepositorio<Transportadora> repo)
     {
+        gerenciador = repo;
+
         Transportadora t = new Transportadora("Segalla", 0.50);
         gerenciador.AdicionarItem(t);
         Transportadora t2 = new Transportadora("Masswell", 0.33);
