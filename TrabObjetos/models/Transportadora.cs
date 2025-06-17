@@ -7,8 +7,13 @@ public class Transportadora : IEntidade
     public int Id {get;set;}
     public String Nome {get;set;}
     public double PrecoKm {get;set;}
+    public Transportadora()
+    {
+        
+    }
 
-    public Transportadora(String nome,double precoKm){
+    public Transportadora(String nome, double precoKm)
+    {
         Nome = nome;
         PrecoKm = precoKm;
     }

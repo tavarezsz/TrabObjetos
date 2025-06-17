@@ -13,14 +13,20 @@ public class Endereço
     public String Cidade{get;set;}
     public String Estado{get;set;}
 
-    public Endereço(String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado){
-        this.Rua=rua;
-        this.Número=numero;
-        this.Complemento=complemento;
-        this.Bairro=bairro;
-        this.Cep=cep;
-        this.Cidade=cidade;
-        this.Estado=estado;
+    public Endereço()
+    {
+        
+    }
+
+    public Endereço(String rua, String numero, String complemento, String bairro, String cep, String cidade, String estado)
+    {
+        this.Rua = rua;
+        this.Número = numero;
+        this.Complemento = complemento;
+        this.Bairro = bairro;
+        this.Cep = cep;
+        this.Cidade = cidade;
+        this.Estado = estado;
     }
 
     public String ObterDescricaoEndereço()

@@ -1,5 +1,6 @@
 using System;
 using Gerenciadores;
+using TrabObjetos;
 using TrabObjetos.models;
 
 namespace Menus;
@@ -11,10 +12,7 @@ public class MenuTransportadoras
     {
         gerenciador = repo;
 
-        Transportadora t = new Transportadora("Segalla", 0.50);
-        gerenciador.AdicionarItem(t);
-        Transportadora t2 = new Transportadora("Masswell", 0.33);
-        gerenciador.AdicionarItem(t2);
+        gerenciador.CarregarDados(Path.Combine("dados","transportadoras.json"));
 
     }
 
@@ -54,10 +52,12 @@ public class MenuTransportadoras
                     if (!gerenciador.ExcluirItem(id))
                         Console.WriteLine("Id não encontrado");
                     else
-                        Console.WriteLine("Excluido com sucesso");    
+                        Console.WriteLine("Excluido com sucesso");
                     break;
             }
         } while (op != 0);
+
+        gerenciador.SalvarDados(Path.Combine("dados","transportadoras.json"));
 
     }
 

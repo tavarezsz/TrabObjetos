@@ -1,12 +1,14 @@
 using System;
 using Gerenciadores;
+using TrabObjetos.models;
 using TrabObjetos;
 
 namespace Menus;
 
 public class MenuUsuarios : GerenciadorEnderecos
 {
-    private IRepositorio<Usuario> gerenciador;
+    private IRepositorio<Admin> gerenciadorAdmin;
+    private IRepositorio<Cliente> gerenciadorCliente;//tem que ter 2 gerenciadores por causa do json
     public void Menu()
     {
         int op;
@@ -35,29 +37,30 @@ public class MenuUsuarios : GerenciadorEnderecos
                     AlterarUsuario();
                     break;
                 case 3:
-                    gerenciador.ListarItens("Lista de Usuários");
+                    gerenciadorAdmin.ListarItens("Admins");
+                    gerenciadorCliente.ListarItens("Clientes");
                     break;
                 case 4:
-                    Console.WriteLine("Id a ser excluído: ");
-                    int id = int.Parse(Console.ReadLine());
-                    if (!gerenciador.ExcluirItem(id))
-                        Console.WriteLine("Id não encontrado");
-                    else
-                        Console.WriteLine("Excluido com sucesso");    
+
+                    ExcluirUser();
+
                     break;
             }
         } while (op != 0);
 
+        gerenciadorAdmin.SalvarDados(Path.Combine("dados", "admins.json"));
+        gerenciadorCliente.SalvarDados(Path.Combine("dados", "clientes.json"));
+
     }
 
-    public MenuUsuarios(IRepositorio<Usuario> repo)
+    public MenuUsuarios(IRepositorio<Admin> admin, IRepositorio<Cliente> cliente)
     {
-        gerenciador = repo;
+        gerenciadorAdmin = admin;
+        gerenciadorCliente = cliente;
 
-        Admin master = new Admin("adm", "123");
-        Cliente cliente = new Cliente("eduardo", "senha", null);
-        gerenciador.AdicionarItem(master);
-        gerenciador.AdicionarItem(cliente);
+
+        gerenciadorAdmin.CarregarDados(Path.Combine("dados", "admins.json"));
+        gerenciadorCliente.CarregarDados(Path.Combine("dados", "clientes.json"));
     }
     public void InserirUsuario()
     {
@@ -89,14 +92,14 @@ public class MenuUsuarios : GerenciadorEnderecos
             Console.WriteLine("Por favor cadastre o endereço do cliente");
             Endereço endereco = InserirEndereco();
             Cliente c = new Cliente(nome, senha, endereco);
-            gerenciador.AdicionarItem(c);
+            gerenciadorCliente.AdicionarItem(c);
 
             Console.WriteLine("usuario criado com sucesso");
         }
         else if (acesso.ToLower() == "admin")
         {
             Admin a = new Admin(nome, senha);
-            gerenciador.AdicionarItem(a);
+            gerenciadorAdmin.AdicionarItem(a);
 
             Console.WriteLine("usuario criado com sucesso");
         }
@@ -107,22 +110,39 @@ public class MenuUsuarios : GerenciadorEnderecos
     {
         Console.WriteLine("-----------Alteração de Usuario -----------");
 
+        string acesso;
+        while (true)
+        {
+            Console.WriteLine("Nivel de acesso do usuario a ser exlcuido(admin/cliente):");
+            acesso = Console.ReadLine();
+            acesso = acesso.ToLower();
+
+            if (acesso != "cliente" && acesso != "admin")
+            {
+                Console.WriteLine("nivel de acesso invalido, tente novamente");
+            }
+            else
+                break;
+        }
 
         Console.WriteLine("Nome do usuario a ser alterado:");
         string nome = Console.ReadLine();
 
         Usuario userAtual;
 
-            try
-            {
-                userAtual = gerenciador.BuscarPorNome(nome);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("tente novamente");
-                return;
-            }
+        try
+        {
+            if (acesso == "admin")
+                userAtual = gerenciadorAdmin.BuscarPorNome(nome);
+            else
+                userAtual = gerenciadorCliente.BuscarPorNome(nome);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            Console.WriteLine("tente novamente");
+            return;
+        }
 
         Console.WriteLine("Se deseja que algum campo permaneça como esta, só aperte enter no campo");
 
@@ -153,7 +173,7 @@ public class MenuUsuarios : GerenciadorEnderecos
 
     }
 
-    public string Auth()
+    public Usuario Auth()
     {
         //se for bem sucedido retorna o nivel de acesso do usuario
         Console.WriteLine("----------Login----------");
@@ -163,7 +183,16 @@ public class MenuUsuarios : GerenciadorEnderecos
         {
             string nome = Console.ReadLine();
 
-            Usuario userAtual = gerenciador.BuscarPorNome(nome);
+            Usuario userAtual;
+
+            try //tentar buscar nos dois
+            {
+                userAtual = gerenciadorAdmin.BuscarPorNome(nome);
+            }
+            catch
+            {
+                userAtual = gerenciadorCliente.BuscarPorNome(nome);
+            }
 
 
             Console.WriteLine("Senha: ");
@@ -174,7 +203,7 @@ public class MenuUsuarios : GerenciadorEnderecos
             {
                 Console.WriteLine("Login efetuado com sucesso");
 
-                return userAtual.Acesso;
+                return userAtual;
             }
             else
                 Console.WriteLine("Senha incorreta, tente novamente");
@@ -185,7 +214,76 @@ public class MenuUsuarios : GerenciadorEnderecos
             Console.WriteLine("Tente novamente");
         }
 
-        return "erro";
+        return null;
+
+
+    }
+
+    public void ExcluirUser()
+    {
+        string acesso;
+        while (true)
+        {
+            Console.WriteLine("Nivel de acesso do usuario a ser exlcuido(admin/cliente):");
+            acesso = Console.ReadLine();
+            acesso = acesso.ToLower();
+
+            if (acesso != "cliente" && acesso != "admin")
+            {
+                Console.WriteLine("nivel de acesso invalido, tente novamente");
+            }
+            else
+                break;
+        }
+        Console.WriteLine("Id a ser excluído: ");
+
+        int id = int.Parse(Console.ReadLine());
+
+        bool sucesso = false;
+        if (acesso == "admin")
+            sucesso = gerenciadorAdmin.ExcluirItem(id);
+        if (acesso == "cliente")
+            sucesso = gerenciadorCliente.ExcluirItem(id);
+        if (sucesso)
+            Console.WriteLine("Excluido com sucesso");
+        else
+            Console.WriteLine("Item não encontrado");
+    }
+
+    public void MeusPedidos(Cliente UserAtual)
+    {
+        int op;
+        Console.WriteLine("----------Meus Pedidos----------");
+        Console.WriteLine("1 - Consulta por numero do pedido");
+        Console.WriteLine("2 - Consulta por data");
+        Console.WriteLine("0 - Voltar ao menu principal");
+        op = int.Parse(Console.ReadLine());
+
+        List<Pedido> pedidosUser = UserAtual.ObterPedidos();
+
+        if (op == 1)
+        {
+            Console.WriteLine("Numero do pedido: ");
+            int num = int.Parse(Console.ReadLine());
+            if (num > pedidosUser.Count)
+                Console.WriteLine("Pedido não encontrado");
+            else //precisa de ajustes
+            {
+                pedidosUser[num].ObterDescricao();
+            }
+
+        }
+        else if (op == 2)
+        {
+            DateTime d1, d2;
+            foreach (var pedido in pedidosUser)
+            {
+                if (DateTime.Compare(d1, pedido.DataHoraPedido) > 0 && DateTime.Compare(d2, pedido.DataHoraPedido) > 0)
+                {
+                    pedido.ObterDescricao();
+                }
+            }
+        }
 
 
     }

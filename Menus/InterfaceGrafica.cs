@@ -21,7 +21,7 @@ public class InterfaceGrafica
         //inicializar os gerenciadores
         if (tipoArmazenamento.ToLower() == "lista")
         {
-            MenuU = new MenuUsuarios(new GerenciadorListas<Usuario>());
+            MenuU = new MenuUsuarios(new GerenciadorListas<Admin>(),new GerenciadorListas<Cliente>());
             MenuF = new MenuFornecedores(new GerenciadorListas<Fornecedor>());
             MenuT = new MenuTransportadoras(new GerenciadorListas<Transportadora>());
             MenuP = new MenuProdutos(new GerenciadorListas<Produto>(), MenuF.gerenciador);//produtos precisa acessar a lista de fornecedores
@@ -29,12 +29,14 @@ public class InterfaceGrafica
         }
         else
         {
-            MenuU = new MenuUsuarios(new GerenciadorVetores<Usuario>());
+            MenuU = new MenuUsuarios(new GerenciadorVetores<Admin>(),new GerenciadorVetores<Cliente>());
             MenuF = new MenuFornecedores(new GerenciadorVetores<Fornecedor>());
             MenuT = new MenuTransportadoras(new GerenciadorVetores<Transportadora>());
             MenuP = new MenuProdutos(new GerenciadorVetores<Produto>(), MenuF.gerenciador);//produtos precisa acessar a lista de fornecedores
 
         }
+
+        //carregar os dados dos json
 
         Entrar();
     }
@@ -94,7 +96,7 @@ public class InterfaceGrafica
         do
         {
             Console.WriteLine("\n========= MENU PRINCIPAL CLIENTE =========");
-            Console.WriteLine("1 - Meu Cadastro");
+            Console.WriteLine("1 - Meu Carrinho");
             Console.WriteLine("2 - Menu de Produtos");
             Console.WriteLine("3 - Menu de Pedidos");
             Console.WriteLine("4 - Logar novamente");
@@ -109,10 +111,10 @@ public class InterfaceGrafica
             switch (opcao)
             {
                 case 1:
-                    Console.WriteLine("Ainda não implementado\n");
+                    MenuU.MeusPedidos((Cliente)userAtual);
                     break;
                 case 2:
-                    MenuP.CarrinhoCompras();
+                    MenuP.CarrinhoCompras((Cliente)userAtual);
                     break;
                 case 3:
                     Console.WriteLine("Menu de Pedidos ainda não implementado para Clientes\n");
@@ -138,11 +140,11 @@ public class InterfaceGrafica
     public void Entrar()
     {
 
-        string acesso = MenuU.Auth();
+        userAtual = MenuU.Auth();
 
-        if (acesso == "cliente")
+        if (userAtual.Acesso == "cliente")
             MostrarMenuCliente();
-        else if (acesso == "admin")
+        else if (userAtual.Acesso == "admin")
             MostrarMenuAdm();
         else
             Entrar();

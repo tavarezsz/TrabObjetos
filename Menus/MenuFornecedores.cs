@@ -1,6 +1,7 @@
 using System;
 using Gerenciadores;
 using TrabObjetos;
+using TrabObjetos.models;
 
 namespace Menus;
 
@@ -44,23 +45,18 @@ public class MenuFornecedores : GerenciadorEnderecos
                     if (!gerenciador.ExcluirItem(id))
                         Console.WriteLine("Id não encontrado");
                     else
-                        Console.WriteLine("Excluido com sucesso");    
+                        Console.WriteLine("Excluido com sucesso");
                     break;
             }
         } while (op != 0);
 
+        gerenciador.SalvarDados(Path.Combine("dados","fornecedores.json"));
     }
 
     public MenuFornecedores(IRepositorio<Fornecedor> repo)
     {
         gerenciador = repo;
-        //cadastrar alguns exemplos
-        Endereço e = new Endereço("julio de castilhos", "555", "fabrica", "lourdes", "12443", "Caxias do sul", "RS");
-        Fornecedor f = new Fornecedor("comp", "Fornecedor de alimentos em geral", "549938210", "comp@gmail.com", e);
-        gerenciador.AdicionarItem(f);
-        Endereço e2 = new Endereço("rua das palmeiras", "1245", "comercial", "Laranjeiras", "22546", "Rio de janeiro", "RJ");
-        Fornecedor f2 = new Fornecedor("Fabregas", "Fornecedor de alimento congelados", "549938210", "comp@gmail.com", e2);
-        gerenciador.AdicionarItem(f2);
+        gerenciador.CarregarDados(Path.Combine("dados","fornecedores.json"));
     }
 
     private void InserirFornecedor()
@@ -90,7 +86,7 @@ public class MenuFornecedores : GerenciadorEnderecos
         Console.WriteLine("Criado com sucesso");
 
     }
-    
+
     private void AlterarFornecedor()
     {
         Console.WriteLine("-----------Alteração de Fornecedor -----------");
@@ -107,7 +103,7 @@ public class MenuFornecedores : GerenciadorEnderecos
         }
         catch (Exception ex)//exceão de item nao encontrado
         {
-            Console.WriteLine(ex.Message+"\n");
+            Console.WriteLine(ex.Message + "\n");
             return;
         }
 
@@ -115,23 +111,23 @@ public class MenuFornecedores : GerenciadorEnderecos
 
         Console.WriteLine("Nome:");
         nome = Console.ReadLine();
-        if(nome !="")
+        if (nome != "")
             fatual.Nome = nome;
 
         Console.WriteLine("Descrição:");
         string descricao = Console.ReadLine();
-        if(descricao != "")
+        if (descricao != "")
             fatual.Descricao = descricao;
 
         Console.WriteLine("Telefone:");
         string telefone = Console.ReadLine();
-        if(telefone != "")
+        if (telefone != "")
             fatual.Telefone = telefone;
 
 
         Console.WriteLine("Email:");
         string email = Console.ReadLine();
-        if(email!="")  
+        if (email != "")
             fatual.Email = email;
 
         Console.WriteLine("Deseja alterar o endereço(s/n)?");
@@ -140,8 +136,6 @@ public class MenuFornecedores : GerenciadorEnderecos
         {
             fatual.Endereco = AlterarEndereco(fatual.Endereco);
         }
-
-
 
         Console.WriteLine("Alterado com sucesso");
 

@@ -13,7 +13,13 @@ public class Fornecedor : IEntidade
     public String Email{get;set;}
     public Endereço Endereco{get;set;}
 
-    public Fornecedor(String nome, String descricao,String telefone, String email,Endereço endereco){
+    public Fornecedor()
+    {
+        
+    }
+
+    public Fornecedor(String nome, String descricao, String telefone, String email, Endereço endereco)
+    {
         Nome = nome;
         Descricao = descricao;
         Telefone = telefone;

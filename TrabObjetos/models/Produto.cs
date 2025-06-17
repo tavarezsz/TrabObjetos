@@ -7,9 +7,14 @@ public class Produto : IEntidade
 {
     public int Id {get;set;}
     public String Nome {get;set;}
-    public int QuantidadeEstoque {get;set;}
+    public int QuantidadeEstoque { get; set; }
     public Fornecedor fornecedor {get;set;}
     public double Preco { get; set; }
+
+    public Produto()
+    {
+        
+    }
 
     public Produto(String nome, Fornecedor fornecedor, double preco = 0, int qtdEstoque = 0)
     {
@@ -20,11 +25,13 @@ public class Produto : IEntidade
     }
 
 
-    public void BaixaEstoque(int qtd){
-        if(qtd > QuantidadeEstoque)
-            throw new Exception($"O estoque não tem a quantidade necessaria deste produto, {QuantidadeEstoque} em estoque");
+    public bool BaixaEstoque(int qtd)
+    {
+        if (qtd > QuantidadeEstoque)
+            return false;
 
         QuantidadeEstoque -= qtd;
+        return true;
     } 
     public void AdicionaEstoque(int qtd){
         QuantidadeEstoque += qtd;

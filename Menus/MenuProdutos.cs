@@ -1,7 +1,9 @@
 using System;
+using System.Reflection;
 using System.Xml;
 using Gerenciadores;
 using TrabObjetos;
+using TrabObjetos.models;
 
 namespace Menus;
 
@@ -11,14 +13,19 @@ public class MenuProdutos
     private IRepositorio<Produto> gerenciador;
     private IRepositorio<Fornecedor> fornecedores;
 
+    private Pedido PedidoAtual;
+
     public MenuProdutos(IRepositorio<Produto> repo, IRepositorio<Fornecedor> forn)
     {
         fornecedores = forn;
         gerenciador = repo;
+        gerenciador.CarregarDados(Path.Combine("dados", "produtos.json"));
+
     }
 
     public void Menu()
     {
+
         int op;
         do
         {
@@ -59,25 +66,93 @@ public class MenuProdutos
             }
         } while (op != 0);
 
+        gerenciador.SalvarDados(Path.Combine("dados","produtos.json"));
+
     }
 
 
-
-
-    public void CarrinhoCompras()
+    public void CarrinhoCompras(Cliente userAtual)
     {
+        //cria um novo pedido sempre que entrar no carrinho, tem que ser finalizado antes de sair
+        if (gerenciador is GerenciadorListas<Produto>)
+            PedidoAtual = new Pedido(new GerenciadorListas<ItemPedido>());
+        else
+            PedidoAtual = new Pedido(new GerenciadorListas<ItemPedido>());
 
 
-        Console.WriteLine("Digite o produto que deseja: ");
-        string produto = Console.ReadLine();
-        List<Produto> resultados = gerenciador.Consulta(produto);
+        Produto produtoSelecionado;
+        string continuar = "s";
 
-        foreach (var prod in resultados)
+        while (continuar.ToLower() == "s")
         {
-            Console.WriteLine(prod.ObterDescricao());
+            Console.WriteLine("Digite o produto que deseja: ");
+            string produto = Console.ReadLine();
+            List<Produto> resultados = gerenciador.Consulta(produto,false);
+
+            foreach (var prod in resultados)
+            {
+                Console.WriteLine(prod.ObterDescricao());
+            }
+            Console.WriteLine("Digite o ID do produto que deseja: ");
+            int prodId = int.Parse(Console.ReadLine());
+
+            try
+            {
+                produtoSelecionado = resultados[resultados.FindIndex(p => p.Id == prodId)];
+            }
+            catch
+            {
+                Console.WriteLine("Entrada inválida");
+                return;
+            }
+
+            Console.WriteLine("Quantidade");
+            int quantidade = int.Parse(Console.ReadLine());
+
+            if (!produtoSelecionado.BaixaEstoque(quantidade))//ver se tem suficiente no estoque
+            {
+                Console.WriteLine($"Infelizmente só possuimos {produtoSelecionado.QuantidadeEstoque} unidades desse produto em estoque");
+                Console.WriteLine("Deseja usar esta quantidade?(s/n): ");
+                string opcao = Console.ReadLine().ToLower();
+                if (opcao == "s")
+                    quantidade = produtoSelecionado.QuantidadeEstoque;
+                else
+                    return;
+
+            }
+
+
+            Console.WriteLine($"Seu total ficou R${produtoSelecionado.Preco * quantidade}, deseja adicionar ao ser carrinho?(s/n): ");
+            string escolha = Console.ReadLine();
+
+            if (escolha.ToLower() == "s") //so faz a alteração de estoque quando o usuario tem certeza
+            {
+                Console.WriteLine(quantidade);
+                ItemPedido itemAtual = new ItemPedido(produtoSelecionado, quantidade);
+                Console.WriteLine(itemAtual.ObterDescricao());
+                PedidoAtual.AdicionarProduto(itemAtual);
+                Console.WriteLine("O produto foi adicionado ao seu carinho!");
+            }
+
+            Console.WriteLine("Adicionar mais produtos(s/n): ");
+            continuar = Console.ReadLine();
+        }
+        Console.WriteLine("Deseja finalizar este pedido?(s/n): ");
+        string finalizar = Console.ReadLine();
+
+        if (finalizar.ToLower() == "s")
+        {
+            PedidoAtual.Situação = "Novo";
+            userAtual.AdicionarPedido(PedidoAtual);
+            return;
         }
 
+        Console.WriteLine("O pedido será excluído");
+        return;
+
+
     }
+
 
     private void InserirProduto()
     {
