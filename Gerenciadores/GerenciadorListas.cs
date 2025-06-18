@@ -10,7 +10,7 @@ namespace Gerenciadores;
 
 public class GerenciadorListas<T> : IRepositorio<T> where T : IEntidade
 {
-    private IList<T> repositorio { get; set; }
+    protected IList<T> repositorio { get; set; }
     public int cont { get; set; }
 
     public GerenciadorListas(IList<T> repo)
