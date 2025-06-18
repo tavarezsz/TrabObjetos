@@ -70,7 +70,7 @@ public class MenuProdutos
 
     }
 
-
+    /*
     public void CarrinhoCompras(Cliente userAtual)
     {
         //cria um novo pedido sempre que entrar no carrinho, tem que ser finalizado antes de sair
@@ -152,6 +152,7 @@ public class MenuProdutos
 
 
     }
+    */
 
 
     private void InserirProduto()

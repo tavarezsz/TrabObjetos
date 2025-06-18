@@ -12,3 +12,17 @@ C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\Geren
 C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\Gerenciadores\obj\Debug\net8.0\refint\Gerenciadores.dll
 C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\Gerenciadores\obj\Debug\net8.0\Gerenciadores.pdb
 C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\Gerenciadores\obj\Debug\net8.0\ref\Gerenciadores.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\Gerenciadores.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\refint\Gerenciadores.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\Gerenciadores.pdb
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\bin\Debug\net8.0\Gerenciadores.deps.json
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\bin\Debug\net8.0\Gerenciadores.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\bin\Debug\net8.0\Gerenciadores.pdb
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\bin\Debug\net8.0\TrabObjetos.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\bin\Debug\net8.0\TrabObjetos.pdb
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\Gerenciadores.csproj.AssemblyReference.cache
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\Gerenciadores.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\Gerenciadores.csproj.CoreCompileInputs.cache
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\Gerenciadores.sourcelink.json
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\Gerencia.B3DD42F6.Up2Date
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Gerenciadores\obj\Debug\net8.0\ref\Gerenciadores.dll

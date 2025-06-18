@@ -17,3 +17,22 @@ C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\Menus
 C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\Menus\obj\Debug\net8.0\Menus.pdb
 C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\Menus\obj\Debug\net8.0\Menus.genruntimeconfig.cache
 C:\Users\Eduardo T\OneDrive\Área de Trabalho\UCS\objetos\TrabObjetos-main\Menus\obj\Debug\net8.0\ref\Menus.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\Menus.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\refint\Menus.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\Menus.pdb
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\Menus.csproj.AssemblyReference.cache
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\Menus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\Menus.csproj.CoreCompileInputs.cache
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\Menus.sourcelink.json
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\Menus.exe
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\Menus.deps.json
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\Menus.runtimeconfig.json
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\Menus.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\Menus.pdb
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\Gerenciadores.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\TrabObjetos.dll
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\Gerenciadores.pdb
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\bin\Debug\net8.0\TrabObjetos.pdb
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\Menus.csproj.Up2Date
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\Menus.genruntimeconfig.cache
+C:\Users\eftavares1\Documents\trabobjetos\TrabObjetos\Menus\obj\Debug\net8.0\ref\Menus.dll

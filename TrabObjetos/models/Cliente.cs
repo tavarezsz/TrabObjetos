@@ -25,9 +25,9 @@ public class Cliente : Usuario
         Pedidos.AdicionarItem(pedido);
     }
 
-    public List<Pedido> ObterPedidos() {
-        return Pedidos.Consulta("asdf", true);
-    }
+//    public List<Pedido> ObterPedidos() {
+ //       return Pedidos.Consulta("asdf", true);
+  //  }
 
     public void MeusPedidos()
     {

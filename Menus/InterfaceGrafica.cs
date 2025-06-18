@@ -21,18 +21,18 @@ public class InterfaceGrafica
         //inicializar os gerenciadores
         if (tipoArmazenamento.ToLower() == "lista")
         {
-            MenuU = new MenuUsuarios(new GerenciadorListas<Admin>(),new GerenciadorListas<Cliente>());
-            MenuF = new MenuFornecedores(new GerenciadorListas<Fornecedor>());
-            MenuT = new MenuTransportadoras(new GerenciadorListas<Transportadora>());
-            MenuP = new MenuProdutos(new GerenciadorListas<Produto>(), MenuF.gerenciador);//produtos precisa acessar a lista de fornecedores
+            MenuU = new MenuUsuarios(new GerenciadorListas<Admin>(new List<Admin>()),new GerenciadorListas<Cliente>(new List<Cliente>()));
+            MenuF = new MenuFornecedores(new GerenciadorListas<Fornecedor>(new List<Fornecedor>()));
+            MenuT = new MenuTransportadoras(new GerenciadorListas<Transportadora>(new List<Transportadora>()));
+            MenuP = new MenuProdutos(new GerenciadorListas<Produto>(new List<Produto>()), MenuF.gerenciador);//produtos precisa acessar a lista de fornecedores
 
         }
         else
         {
-            MenuU = new MenuUsuarios(new GerenciadorVetores<Admin>(),new GerenciadorVetores<Cliente>());
-            MenuF = new MenuFornecedores(new GerenciadorVetores<Fornecedor>());
-            MenuT = new MenuTransportadoras(new GerenciadorVetores<Transportadora>());
-            MenuP = new MenuProdutos(new GerenciadorVetores<Produto>(), MenuF.gerenciador);//produtos precisa acessar a lista de fornecedores
+            MenuU = new MenuUsuarios(new GerenciadorListas<Admin>(new Admin[1]),new GerenciadorListas<Cliente>(new Cliente[1]));
+            MenuF = new MenuFornecedores(new GerenciadorListas<Fornecedor>(new Fornecedor[1]));
+            MenuT = new MenuTransportadoras(new GerenciadorListas<Transportadora>(new Transportadora[1]));
+            MenuP = new MenuProdutos(new GerenciadorListas<Produto>(new Produto[1]), MenuF.gerenciador);//produtos precisa acessar a lista de fornecedores
 
         }
 
@@ -111,10 +111,10 @@ public class InterfaceGrafica
             switch (opcao)
             {
                 case 1:
-                    MenuU.MeusPedidos((Cliente)userAtual);
+                    //MenuU.MeusPedidos((Cliente)userAtual);
                     break;
                 case 2:
-                    MenuP.CarrinhoCompras((Cliente)userAtual);
+                    //MenuP.CarrinhoCompras((Cliente)userAtual);
                     break;
                 case 3:
                     Console.WriteLine("Menu de Pedidos ainda não implementado para Clientes\n");

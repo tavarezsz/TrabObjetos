@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Net.Cache;
 using System.Text.Json;
 using TrabObjetos;
 using TrabObjetos.models;
@@ -9,27 +10,32 @@ namespace Gerenciadores;
 
 public class GerenciadorListas<T> : IRepositorio<T> where T : IEntidade
 {
-    private List<T> lista = new List<T>();
+    private IList<T> repositorio { get; set; }
     public int cont { get; set; }
 
+    public GerenciadorListas(IList<T> repo)
+    {
+        repositorio = repo;
+    
+    }
     public void AdicionarItem(T item)
     {
-        if (lista.Count != 0)
+        if (repositorio.Count != 0)
         {
-            if (lista.Exists(p => p.Nome == item.Nome))//se já existe esse nome na lista
+            if (repositorio.Contains(item))//se já existe esse nome na lista
             {
                 throw new Exception("Um item com este nome já está cadastrado");
             }
         }
-        item.Id = lista.Count;
-        cont = lista.Count;
-        lista.Add(item);
+        item.Id = repositorio.Count;
+        cont = repositorio.Count;
+        repositorio.Add(item);
     }
 
     public T BuscarPorNome(string nome)
     {
 
-        foreach (var item in lista)
+        foreach (var item in repositorio)
         {
             if (item != null)
             {
@@ -44,16 +50,11 @@ public class GerenciadorListas<T> : IRepositorio<T> where T : IEntidade
     }
 
 
-    public List<T> Consulta(string keyword,bool todos) //todos é uma flag para retornar a lista inteira
+    public IList<T> Consulta(string keyword) 
     {
-        List<T> resultado = new List<T>();
-        if (todos)
-        {
-            resultado = lista;
-            return resultado;
-        }
+        IList<T> resultado = new List<T>(); //ajustar depois
             
-        foreach (var item in lista)
+        foreach (var item in repositorio)
             {
                 if (item.Nome.Contains(keyword))
                 {
@@ -67,8 +68,8 @@ public class GerenciadorListas<T> : IRepositorio<T> where T : IEntidade
     {
         try
         {
-            lista.RemoveAt(id);
-            cont = lista.Count;
+            repositorio.RemoveAt(id);
+            cont = repositorio.Count;
         }
         catch
         {
@@ -83,7 +84,7 @@ public class GerenciadorListas<T> : IRepositorio<T> where T : IEntidade
     {
 
         Console.WriteLine($"--------{msg}--------");
-        foreach (var item in lista)
+        foreach (var item in repositorio)
         {
             Console.WriteLine("\n" + item.ObterDescricao() + "\n");
         }
@@ -91,10 +92,10 @@ public class GerenciadorListas<T> : IRepositorio<T> where T : IEntidade
 
     public void SalvarDados(string arquivo)
     {
-        if (lista.Count == 0) //para não criar um arquivo vazio
+        if (repositorio.Count == 0) //para não criar um arquivo vazio
             return;
 
-        string jsonData = JsonSerializer.Serialize<List<T>>(lista);
+        string jsonData = JsonSerializer.Serialize<IList<T>>(repositorio);
         File.WriteAllText(arquivo, jsonData);
     }
     public void CarregarDados(string arquivo)
@@ -103,7 +104,8 @@ public class GerenciadorListas<T> : IRepositorio<T> where T : IEntidade
             return;
 
         string jsonData = File.ReadAllText(arquivo);
-        lista = JsonSerializer.Deserialize<List<T>>(jsonData);
+        repositorio = JsonSerializer.Deserialize<List<T>>(jsonData);
     
     }
+
 }

@@ -250,6 +250,7 @@ public class MenuUsuarios : GerenciadorEnderecos
             Console.WriteLine("Item não encontrado");
     }
 
+/*
     public void MeusPedidos(Cliente UserAtual)
     {
         int op;
@@ -287,4 +288,5 @@ public class MenuUsuarios : GerenciadorEnderecos
 
 
     }
+    */
 }

@@ -10,7 +10,7 @@ public interface IRepositorio<T> where T : IEntidade
     void AdicionarItem(T item);
     void ListarItens(string msg);
     bool ExcluirItem(int id);
-    List<T> Consulta(string keyword,bool flag);
+    IList<T> Consulta(string keyword);
     void SalvarDados(string arquivo);
     void CarregarDados(string arquivo);
 
